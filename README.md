@@ -1,20 +1,21 @@
-## ✅ Student checklist (read first)
+## ✅ Student Checklist
 
 Before the workshop, make sure you have:
 
-* ⬜ A **Windows laptop (Windows 10 or 11)**
-* ⬜ **VMware Workstation Pro** installed
-* ⬜ At least **16 GB RAM** (8 GB minimum, but 16 strongly recommended)
-* ⬜ At least **70 GB free disk space** (120 GB recommended)
-* ⬜ A stable internet connection
-
-> ⚠️ Mac users with **M-series (M1/M2/M3)** CPUs must use the **ARM version** of the lab.
+* [ ] A **Windows (Windows 10 or 11)** or **Mac M-series (M1-4)** laptop
+* [ ] At least **12 GB RAM** (8 GB minimum, but 12-16 strongly recommended)
+* [ ] At least **80 GB free disk space** (120 GB recommended)
+* [ ] A stable internet connection
 
 ---
-## Step 1 — Install VMware Workstation (if needed)
+## Step 1 - Install VMware
 
+### Windows
 Download from [TechSpot](https://www.techspot.com/downloads/189-vmware-workstation-for-windows.html):
 * VMware Workstation Pro 17.6.3
+### Mac
+Download from [TechSpot](https://www.techspot.com/downloads/2755-vmware-fusion-mac.html):
+- VMware Fusion Pro 13.6.3
 
 >You can download directly from VMware, now Broadcom, but you'll need to make an account.
 
@@ -25,95 +26,92 @@ During install:
 No license key required for this workshop.
 
 ---
-## Step 2 — Download the lab image
+## Step 2 - Download the lab image
 
-Download the .tar and SHA256 checksum from the provided Google Drive link:
+Download the .tar and SHA256 checksum for your image from the Mega link provided by the organizers:
 
 ```
 dfth-workshop
 > dfth-workshop-x64.tar
 > dfth-workshop-x64-sha256.txt
+> dfth-workshop-arm64.tar.gz
+> dfth-workshop-arm64-sha256.txt
 ```
 
-⚠️ **Important**
+>Windows users will select the x64 files, while Mac users will use the arm64 ones.
 
-* Select Download anyway
-* Download the contents **fully** before importing
-* Do **not** open it directly from Google Drive
+⚠️ **Important**
+* Download the contents **fully** before importing.
 
 Expected size: ~30 GB
 
-Google Drive . This will take some **time**.
-
 ---
-## (Optional but recommended) Step 2.5 — Verify the download
+## (Optional but recommended) Step 2.5 - Verify the download
 
-If you want to confirm the file downloaded correctly:
-### On Windows (PowerShell):
-
+If you want to confirm the file downloaded correctly, run the following in your terminal:
+### Windows
 ```powershell
 Get-FileHash dfth-workshop-x64.tar -Algorithm SHA256
 ```
+### Mac
+```bash
+shasum -a 256 dfth-workshop-arm64.tar.gz
+```
 
-Compare the output to the checksum in `dfth-workshop-x64-sha256.txt`
+Compare the output to the checksum in the respective .txt file.
 
 If it matches, your download is intact.
 
 ---
-## Step 3 — Import the virtual machine
+## Step 3 - Import the virtual machine
 
-1. Extract the contents of `dfth-workshop-x64.tar` 
-2. Open **VMware Workstation**
+1. Extract the contents of the tar file.
+	1. Mac users may need to run `tar -xzf dfth-workshop-arm64.tar.gz`
+2. Open **VMware**
 3. Click `File → Open...`
 4. Double-click the folder and select the file that appears.
-5. Choose "I copied it" if prompted.
-6. If a SATA warning comes up, click No.
-7. Wait for import to complete
+5. You'll need to input a password for the TPM
+	1. Paste `Lived$Unreal$Bootlace$Program$Skier9`
+6. Choose "I copied it" if prompted.
+7. If a SATA warning comes up, click No.
+8. Wait for import to complete
 
 ⏱ Import time: a few minutes
 
 ---
-## Step 4 — First boot
+## Step 4 - First boot
 
-1. Select the imported VM
-2. You'll need to input a password for the TPM
-	1. Paste `Lived$Unreal$Bootlace$Program$Skier9`
-3. Click **Power On**
-4. The user password is `findevil89!`
-5. Wait for Windows to start
+1. Select the imported VM.
+2. Input the TPM password from above if prompted.
+3. Click **Power On**.
+4. Wait for Windows to start.
+5. The user is `dfthrunter` and the password is `findevil89!`
+6. If prompted, opt out of backup.
 
 You should see:
-
 * Windows 11 desktop
 * Network connected
-* No setup prompts
 
 If Windows asks about:
-
-* Network type → select **Private**
+* Network type → select **Public**
 * Updates → skip for now
 
 ---
-## Step 5 — Verify everything works (2 minutes)
+## Step 5 - Verify everything works (5-10 minutes)
 
 Inside the VM:
+* [ ] Mouse and keyboard work
+* [ ] Internet access works (open a browser)
+* [ ] Wait up to 10min , `http://localhost:5601` should load an Elastic login window
+	- Username: `elastic`
+	- Password (Windows): `61*FE8bjC2hrgcE2YtfG`
+	- Password (Mac): `*_nFAP+ynp6yf=S+VKeP`
 
-* ⬜ Mouse and keyboard work
-* ⬜ Internet access works (open a browser)
-* ⬜ The VM is responsive
-
-If this is true, **you’re done**.
+If you can login to Elastic/Kibana successfully, you're done!
 
 ---
 ## 🚨 Common issues & quick fixes
 
-### “Download quota exceeded”
-
-* Sign into any Google account
-* Right-click the file → **Make a copy**
-* Download the copy
-
----
 ### VM won’t start or is very slow
 
 * Make sure **no other VMs** are running
@@ -127,3 +125,12 @@ If this is true, **you’re done**.
 * Accept defaults
 
 Safe and expected.
+
+---
+### localhost:5601 isn't loading
+
+* Make sure you type in `http://` *not* https
+* If it's been 15-20min, run `ipconfig`
+	* Windows x64 users should see `192.168.121.140`
+	* Mac arm64 users should see `172.16.70.128`
+* If those values aren't correct please let the organizers know and I will publish a fix
