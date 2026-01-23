@@ -1,3 +1,4 @@
+# KQL Guide
 ## 1. Core Concepts (Winlogbeat)
 When Winlogbeat ships Windows Event Logs to Elasticsearch, events typically land in indices like: `winlogbeat-*`
 
