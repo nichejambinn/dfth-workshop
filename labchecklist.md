@@ -98,7 +98,7 @@ If Windows asks about:
 
 ---
 ## Step 5 - Hot Fixes
-1. Once logged in, open up the terminal and run `ipconfig`.
+1. Once logged into your VM, open up the terminal inside the machine and run `ipconfig`.
 2. Copy down your IP address, it'll start with 192, 172 or 10.
 3. Open up `C:\Elastic\kibana-9.2.4\config\kibana.yml`.
 4. At the bottom of the file, replace the IP address in `elasticsearch.hosts` with your IP.
