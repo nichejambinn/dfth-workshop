@@ -96,7 +96,14 @@ If Windows asks about:
 * Network type → select **Public**
 * Updates → skip for now
 
-7. If you could only allocate 8 GB RAM, run `setx ES_JAVA_OPTS "-Xms1g -Xmx1g"` in the terminal.
+---
+## Step 5 - Hot Fixes
+1. Once logged in, open up the terminal and run `ipconfig`.
+2. Copy down your IP address, it'll start with 192, 172 or 10.
+3. Open up `C:\Elastic\kibana-9.2.4\config\kibana.yml`.
+4. At the bottom of the file, replace the IP address in `elasticsearch.hosts` with your IP.
+5. Save the file and restart the VM.
+6. If you could only allocate 8 GB RAM, run `setx ES_JAVA_OPTS "-Xms1g -Xmx1g"` in the terminal.
 
 ---
 ## Step 5 - Verify everything works (5-10 minutes)
@@ -127,12 +134,3 @@ If you can login to Elastic/Kibana successfully, you're done!
 * Accept defaults
 
 Safe and expected.
-
----
-### localhost:5601 isn't loading
-
-* Make sure you type in `http://` *not* https
-* If it's been 15-20min, run `ipconfig`
-	* Windows x64 users should see `192.168.121.140`
-	* Mac arm64 users should see `172.16.70.128`
-* If those values aren't correct please let the organizers know and I will publish a fix
