@@ -1,3 +1,4 @@
+# Common Event Codes
 | Source                                   | Event IDs      | Description                                                        |
 | ---------------------------------------- | -------------- | ------------------------------------------------------------------ |
 | Security                                 | 4624           | An account was successfully logged on                              |
