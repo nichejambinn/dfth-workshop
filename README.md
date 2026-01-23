@@ -96,6 +96,8 @@ If Windows asks about:
 * Network type → select **Public**
 * Updates → skip for now
 
+7. If you could only allocate 8 GB RAM, run `setx ES_JAVA_OPTS "-Xms1g -Xmx1g"` in the terminal.
+
 ---
 ## Step 5 - Verify everything works (5-10 minutes)
 
