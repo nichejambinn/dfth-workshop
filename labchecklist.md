@@ -145,3 +145,8 @@ Safe and expected.
 * Inspect the bottom of `C:\Elastic\kibana-9.2.4\logs\kibana.log`
 * If you just see `[root] Kibana is starting` and one or two more lines, it's still loading
 * Once you see `[INFO ][http.server.Kibana] http server running at http://localhost:5601` the app should be available (not `[http.server.Preboot]`)
+
+---
+### Kibana Error 503
+
+* All good, just refresh
