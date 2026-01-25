@@ -98,12 +98,15 @@ If Windows asks about:
 
 ---
 ## Step 5 - Hot Fixes
-1. Once logged into your VM, open up the terminal inside the machine and run `ipconfig`.
-2. Copy down your IP address, it'll start with 192, 172 or 10.
-3. Open up `C:\Elastic\kibana-9.2.4\config\kibana.yml`.
-4. At the bottom of the file, replace the IP address in `elasticsearch.hosts` with your IP.
-5. Save the file and restart the VM.
-6. If you could only allocate 8 GB RAM, run `setx ES_JAVA_OPTS "-Xms1g -Xmx1g"` in the terminal.
+1. Open up `C:\Elastic\kibana-9.2.4\config\kibana.yml`.
+2. At the bottom of the file, where it says `# This section was automatically generated during setup.`, leave `elasticsearch.serviceAccountToken` as is, replace everything else such that it looks like this:
+```yaml
+elasticsearch.hosts: ["https://localhost:9200"]
+elasticsearch.ssl.verificationMode: none
+elasticsearch.serviceAccountToken: <token>
+```
+3. Save the file and restart the VM.
+4. If you could only allocate 8 GB RAM for the VM, run `setx ES_JAVA_OPTS "-Xms1g -Xmx1g"` in the terminal.
 
 ---
 ## Step 5 - Verify everything works (5-10 minutes)
