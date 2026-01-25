@@ -94,11 +94,10 @@ You should see:
 * Network connected
 
 If Windows asks about:
-* Network type → select **Public**
 * Updates → skip for now
 
 ---
-## Step 5 - Hot Fixes
+## Step 5 - Networking Fix
 1. Open up `C:\Elastic\kibana-9.2.4\config\kibana.yml`.
 2. At the bottom of the file, after where it says `# This section was automatically generated during setup.`, leave `elasticsearch.serviceAccountToken` as is, replace everything else such that it looks like this:
 ```yaml
