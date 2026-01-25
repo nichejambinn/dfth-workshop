@@ -53,6 +53,8 @@ Path: `C:\Windows\System32\winevt\logs`
 	- not suitable for forensic purposes (it sucks)
 - categorized by a variety of event IDs
 	- you'll never memorize them all!
+    - [common event codes](eventcodes.md)
+- other references:
 	- [UltimateWindowsSecurity.com – Windows Security Log Events](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/default.aspx?i=j)
 	- [Github – Awesome-event-ids](https://github.com/stuhli/awesome-event-ids)
 ### Sysmon
@@ -71,7 +73,7 @@ Path: `C:\Windows\System32\winevt\logs`
 - our SIEM (Security Information and Event Management) platform
 	- other tools include Splunk, IBM QRadar and Microsoft Sentinel
 - general purpose search engine with powerful query language - Boolean searches
-## KQL
+## [KQL](KQL.md)
 "Kibana Query Language"
 
 `winlog.channel:"Microsoft-Windows-Sysmon/Operational" AND event.code:1 AND process.name:mspaint.exe`
