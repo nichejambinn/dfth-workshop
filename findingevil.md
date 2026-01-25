@@ -58,7 +58,7 @@ Path: `C:\Windows\System32\winevt\logs`
 ### Sysmon
 - adds several new events with considerable detail to the event log
 - have to download (for now) and enable manually
-![[sysmon-event-screen-optimized.png]]
+
 ### event categories we're ingesting (using Winlogbeat)
 | Category    | Created By                                  | Examples                             |
 | ----------- | ------------------------------------------- | ------------------------------------ |
