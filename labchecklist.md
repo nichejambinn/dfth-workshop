@@ -99,22 +99,21 @@ If Windows asks about:
 ---
 ## Step 5 - Hot Fixes
 1. Open up `C:\Elastic\kibana-9.2.4\config\kibana.yml`.
-2. At the bottom of the file, where it says `# This section was automatically generated during setup.`, leave `elasticsearch.serviceAccountToken` as is, replace everything else such that it looks like this:
+2. At the bottom of the file, after where it says `# This section was automatically generated during setup.`, leave `elasticsearch.serviceAccountToken` as is, replace everything else such that it looks like this:
 ```yaml
 elasticsearch.hosts: ["https://localhost:9200"]
 elasticsearch.ssl.verificationMode: none
-elasticsearch.serviceAccountToken: <token>
+elasticsearch.serviceAccountToken: <your actual token value>
 ```
 3. Save the file and restart the VM.
-4. If you could only allocate 8 GB RAM for the VM, run `setx ES_JAVA_OPTS "-Xms1g -Xmx1g"` in the terminal.
 
 ---
-## Step 5 - Verify everything works (5-10 minutes)
+## Step 5 - Verify everything works
 
 Inside the VM:
 * [ ] Mouse and keyboard work
 * [ ] Internet access works (open a browser)
-* [ ] Wait up to 10min , `http://localhost:5601` should load an Elastic login window
+* [ ] Wait up to 10-15min, `http://localhost:5601` should load an Elastic login window
 	- Username: `elastic`
 	- Password (Windows): `61*FE8bjC2hrgcE2YtfG`
 	- Password (Mac): `*_nFAP+ynp6yf=S+VKeP`
@@ -129,6 +128,7 @@ If you can login to Elastic/Kibana successfully, you're done!
 * Make sure **no other VMs** are running
 * Close heavy apps (browsers, IDEs, games)
 * Ensure virtualization is enabled in BIOS (rare, but possible)
+* If you could only allocate 8 GB RAM for the VM, run `setx ES_JAVA_OPTS "-Xms1g -Xmx1g"` in the VM terminal
 
 ---
 ### “This VM was created by a newer version”
@@ -137,3 +137,11 @@ If you can login to Elastic/Kibana successfully, you're done!
 * Accept defaults
 
 Safe and expected.
+
+---
+### `localhost:5601` won't load
+
+* Make sure you use `http://` not https
+* Inspect the bottom of `C:\Elastic\kibana-9.2.4\logs\kibana.log`
+* If you just see `[root] Kibana is starting` and one or two more lines, it's still loading
+* Once you see `[INFO ][http.server.Kibana] http server running at http://localhost:5601` the app should be available (not `[http.server.Preboot]`)
