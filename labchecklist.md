@@ -67,12 +67,12 @@ If it matches, your download is intact.
 ## Step 3 - Import the virtual machine
 
 1. Extract the contents of the tar file.
-	1. Mac users may need to run `tar -xzf dfth-workshop-arm64.tar.gz`
-2. Open **VMware**
+	1. Mac users should run `tar -xzf dfth-workshop-arm64.tar.gz` instead of using the Extract utility.
+2. Open **VMware**.
 3. Click `File → Open...`
 4. Double-click the folder and select the file that appears.
-5. You'll need to input a password for the TPM
-	1. Paste `Lived$Unreal$Bootlace$Program$Skier9`
+5. You'll need to input a password for the TPM:
+	1. `Lived$Unreal$Bootlace$Program$Skier9`
 6. Choose "I copied it" if prompted.
 7. If a SATA warning comes up, click No.
 8. Wait for import to complete
