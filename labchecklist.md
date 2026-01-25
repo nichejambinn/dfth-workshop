@@ -38,7 +38,8 @@ dfth-workshop
 > dfth-workshop-arm64-sha256.txt
 ```
 
->Windows users will select the x64 files, while Mac users will use the arm64 ones.
+>Windows users should select the x64 files, while Mac M-series users should use the arm64 ones.
+>Intel Mac users *may* be able to run the x64 VM. Windows Snapdragon users *may* be able to run arm64.
 
 ⚠️ **Important**
 * Download the contents **fully** before importing.
