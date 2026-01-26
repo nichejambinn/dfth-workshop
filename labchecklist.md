@@ -119,6 +119,8 @@ auditpol /set /subcategory:"Credential Validation" /success:enable /failure:enab
 auditpol /set /subcategory:"Other System Events" /success:enable
 auditpol /set /subcategory:"Security Group Management" /success:enable
 auditpol /set /subcategory:"User Account Management" /success:enable /failure:enable
+
+ipconfig /flushdns
 ```
 
 ---
