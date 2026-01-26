@@ -99,7 +99,7 @@ If Windows asks about:
 * Updates → skip for now
 
 ---
-## Step 5 - Networking Fix
+## Step 5 - Fixes
 1. Open up `C:\Elastic\kibana-9.2.4\config\kibana.yml`.
 2. At the bottom of the file, after where it says `# This section was automatically generated during setup.`, leave `elasticsearch.serviceAccountToken` as is, replace everything else such that it looks like this:
 ```yaml
@@ -108,6 +108,18 @@ elasticsearch.ssl.verificationMode: none
 elasticsearch.serviceAccountToken: <your actual token value>
 ```
 3. Save the file and restart the VM.
+4. Open up an admin terminal.
+5. Run the following:
+```powershell
+auditpol /set /subcategory:"Logon" /success:enable /failure:enable
+auditpol /set /subcategory:"Logoff" /success:enable
+auditpol /set /subcategory:"Special Logon" /success:enable
+auditpol /set /subcategory:"Process Creation" /success:enable
+auditpol /set /subcategory:"Credential Validation" /success:enable /failure:enable
+auditpol /set /subcategory:"Other System Events" /success:enable
+auditpol /set /subcategory:"Security Group Management" /success:enable
+auditpol /set /subcategory:"User Account Management" /success:enable /failure:enable
+```
 
 ---
 ## Step 5 - Verify everything works
