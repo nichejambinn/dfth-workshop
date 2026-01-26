@@ -72,10 +72,12 @@ If it matches, your download is intact.
 3. Click `File → Open...`
 4. Double-click the folder and select the file that appears.
 5. You'll need to input a password for the TPM:
-	1. `Lived$Unreal$Bootlace$Program$Skier9`
-6. Choose "I copied it" if prompted.
-7. If a SATA warning comes up, click No.
-8. Wait for import to complete
+```
+Lived$Unreal$Bootlace$Program$Skier9
+```
+7. Choose "I copied it" if prompted.
+8. If a SATA warning comes up, click No.
+9. Wait for import to complete
 
 ⏱ Import time: a few minutes
 
@@ -114,9 +116,15 @@ Inside the VM:
 * [ ] Mouse and keyboard work
 * [ ] Internet access works (open a browser)
 * [ ] Wait up to 10-15min, `http://localhost:5601` should load an Elastic login window
-	- Username: `elastic`
-	- Password (Windows): `61*FE8bjC2hrgcE2YtfG`
-	- Password (Mac): `*_nFAP+ynp6yf=S+VKeP`
+	- Username: `elastic`, Password:  
+#### x64
+```
+61*FE8bjC2hrgcE2YtfG
+```
+#### arm64
+```
+*_nFAP+ynp6yf=S+VKeP
+```
 
 If you can login to Elastic/Kibana successfully, you're done!
 
