@@ -5,7 +5,7 @@ Hands-on cybersecurity workshop based on a lab running Elasticsearch + Sysmon + 
 ## Table of Contents
 - [Lab Setup Checklist](labchecklist.md)
 - [Core Concepts](findingevil.md)
-- Walkthrough
+- [Walkthrough](walkthrough.md)
 - [Common Event Codes](eventcodes.md)
 - [KQL Syntax](KQL.md)
 - Lab Build Guide
